@@ -99,7 +99,13 @@
 
         // setVariable for the first example
         setTimeout(function(){
-            document.querySelector('#first').source = dataTest;
+            let firstElement = document.querySelector('#first');
+            firstElement.source = dataTest;
+            firstElement.defaultValue = {
+                numberShirt: 55,
+                name: 'Curtis',
+                text: 'Olimpia player'
+            };
             let secondElement = document.querySelector('#second');
             secondElement.addEventListener('autocomplete-change', remoteFunction);
         }, 1000);
@@ -107,6 +113,7 @@
     <div class="container">
         <h2>Paper Autocomplete, whit suffix</h2>
         <p>Simple example of paper-autocomplete with suffix, an Array for source, 'showResultsOnFocus' === true and a custom text-property.<br>
+        There is Default Value for the paper-autocomplete.<br>
         it's possibile also use prefix element, just change the attributes of the element from suffix to prefix</p>
         <div class="paper-autocomplete">
             <demo-snippet>

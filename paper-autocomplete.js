@@ -319,7 +319,8 @@ class PaperAutocomplete extends PolymerElement {
             },
 
             defaultValue: {
-                type: Object
+                type: Object,
+                observer: '_defaultChanged'
             },
 
             /*************
@@ -366,6 +367,16 @@ class PaperAutocomplete extends PolymerElement {
                 value: text
             }
         });
+    }
+    
+    _defaultChanged(newSource) {
+        if (typeof newSource === 'object' && newSource[this.textProperty]) {
+            this.text = newSource[this.textProperty];
+            this.value = newSource;
+        }else{
+            console.error(`${newSource} isn't an object or there aren't the textProperty`);
+            return;
+        }
     }
 
     /**

@@ -679,7 +679,8 @@ class PaperAutocompleteSuggestions extends PolymerElement {
             detail: {
                 id: id,
                 value: option,
-                text: option.text
+                text: option.text,
+                target: this
             },
             bubbles: true,
             composed: true
